@@ -1,5 +1,5 @@
 # clone the repostory from below URL
----Github link:
+---Github link:  https://github.com/NavyaGunda23/TradeApp
 
 # In terminal we should go to the project directory, you can run:
 ### `npm install`
