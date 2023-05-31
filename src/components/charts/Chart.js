@@ -17,7 +17,6 @@ function Chart(props) {
     chartData.forEach((element, index) => {
       rv.push({ "price": element })
     });
-    console.log(rv);
     setChartData(rv)
   }
   return (

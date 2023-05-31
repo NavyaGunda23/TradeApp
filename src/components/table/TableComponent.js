@@ -6,18 +6,19 @@ import Chart from '../charts/Chart'
 function TableComponent (props){
     const [tableData, setTableData] = useState(props.tableData)
     const [headerData, setHeaderData] = useState()
-    const sortingTable = (nextSort) => {
+    const sortingTable = (nextSort,headerData) => {
         let sortedProducts;
         if(nextSort == "up"){
-            sortedProducts = tableData.sort((a, b) => (a[headerData] > b[headerData]) ? 1 : -1 )
+            sortedProducts = tableData.sort((a, b) => (a[headerData] - b[headerData]) ? 1 : -1 )
         }else if(nextSort == "down"){
-            sortedProducts = tableData.sort((a, b) => (a[headerData] < b[headerData]) ? 1 : -1 )
+            sortedProducts = tableData.sort((a, b) => (b[headerData] - a[headerData]) ? 1 : -1 )
         }else{
-            sortedProducts = tableData.sort((a, b) => (a["display_order"] > b["display_order"]) ? 1 : -1 )
+            sortedProducts = tableData.sort((a, b) => (a[headerData] - b[headerData]) ? 1 : -1 )
         }
+        // loadTable(sortedProducts)
         setTableData(prevtableData => {
             return sortedProducts
-        })
+        });
     }
     const sortTypes = {
         up: {
@@ -48,14 +49,15 @@ function TableComponent (props){
         setHeaderData(prevheaderData => {
             return headerdata
         })
-        sortingTable(nextSort);
+        sortingTable(nextSort,headerdata);
 	};
+
     useEffect(() => {
-        loadTable();
-    },[props.tableData])
-    const loadTable = () =>{
-        setTableData(props.tableData);
-    }
+        setTableData(prevtableData => {
+            return props.tableData
+        });
+    },[tableData,props.tableData])
+   
     return(
         <table className="table-border">
             <thead>
