@@ -82,9 +82,8 @@ function MainComponent(props) {
     var tableReocrd = props.tableData;
     let first = getIndex("active", tabList, true);
     let second = getIndex("active", subMenuTab, true);
-    console.log(tabList, tabsData)
     let mainTabActive = tabList[first].name == "Synthetic indices" ? "Derived" : tabList[first].name;
-    if (filterName == "firstLevel") {
+    if (filterName == "firstLevel" && second <0) {
       filterFirstData = tableReocrd
         .filter(x => { return x.market_display_name.includes(mainTabActive) })
     } else {
@@ -105,9 +104,10 @@ function MainComponent(props) {
     getFiletredData("firstLevel")
   }
 
-  useEffect(() => {
-    setTableData(tableData)
-  }, [filterFirstData, tableData])
+  useEffect(()=>{
+    setTableData(tableData);
+    getFiletredData("firstLevel")
+}, []) 
 
   return (
     <>

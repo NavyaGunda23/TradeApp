@@ -17,6 +17,7 @@ ul.nav {
     text-align: center;
     cursor: pointer;
     transition: all 0.7s;
+    cursor: pointer;
   }
   ul.nav li:hover {
     border-bottom: 2px solid rgb(196, 77, 30);

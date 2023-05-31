@@ -13,7 +13,7 @@ function TableComponent (props){
         }else if(nextSort == "down"){
             sortedProducts = tableData.sort((a, b) => (b[headerData] - a[headerData]) ? 1 : -1 )
         }else{
-            sortedProducts = tableData.sort((a, b) => (a[headerData] - b[headerData]) ? 1 : -1 )
+            sortedProducts = tableData.sort((a, b) => (a["display_order"] - b["display_order"]) ? 1 : -1 )
         }
         // loadTable(sortedProducts)
         setTableData(prevtableData => {
@@ -57,7 +57,7 @@ function TableComponent (props){
             return props.tableData
         });
     },[tableData,props.tableData])
-   
+
     return(
         <table className="table-border">
             <thead>
