@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.secondLevelFilters{
+  display: flex;
+}
+.clearAll{
+  margin-top: 12px;
+}
+.recharts-cartesian-axis-tick{
+  font-size: 8px;
+}

@@ -1,0 +1,31 @@
+.table-border{
+    border-collapse: collapse; 
+    font-size: 14px;
+  }
+  .table-border td,.table-border th {
+    padding: 10px 15px;
+    text-align: left;
+    width: 17%;
+  }
+  .table-border .displaynameIcon{
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+  margin-right: 15px;
+  }
+  .table-border .displaynameIcon span{
+    height: inherit;
+    vertical-align: middle;
+  }
+  .table-border tr {
+    border-bottom: 1px solid rgb(128, 127, 127);
+  }
+  .sortringIcon{
+    margin-left: 10px;
+  }
+  .priceHistory{
+    color: rgb(97, 199, 199);
+  }
+  .text-center{
+    text-align: center !important;
+  }
